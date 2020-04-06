@@ -14,8 +14,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center">
+        android:gravity="center"
+        android:background="@drawable/androidbackground2">
 
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:srcCompat="@drawable/logo"
+            android:layout_marginBottom="@android:dimen/app_icon_size"/>
 
         <EditText
             android:id="@+id/utilisateurEditText"
@@ -24,20 +32,21 @@
             android:ems="10"
             android:hint="Utilisateur"
             android:inputType="textPersonName" />
-
         <EditText
             android:id="@+id/motdepasseEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Mot de passe"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:layout_marginBottom="@android:dimen/app_icon_size"/>
 
         <Button
             android:id="@+id/connexion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Connexion" />
+            android:text="Connexion"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView3"
@@ -50,6 +59,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Inscription"
-            android:textColor="#008b00" />
+            android:textColor="#008b00"
+            android:textStyle="bold"
+            android:layout_marginBottom="@android:dimen/thumbnail_width" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
