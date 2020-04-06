@@ -40,7 +40,7 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/EmailEditText"
+            android:id="@+id/emailEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -64,7 +64,7 @@
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/InscriptionBtn"
+            android:id="@+id/inscriptionBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Inscription"
