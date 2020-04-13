@@ -10,8 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -19,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final EditText utilisateurEditText = (EditText)findViewById(R.id.utilisateurEditText);
+        final EditText utilisateurEditText = (EditText)findViewById(R.id.pseudoEditText);
         final EditText mdpEditText = (EditText)findViewById(R.id.motdepasseEditText);
         TextView inscription = (TextView)findViewById(R.id.inscriptionTextView);
         inscription.setText(Html.fromHtml("<p><u>" + inscription.getText() + "</u></p>"));

@@ -6,4 +6,73 @@
     android:layout_height="match_parent"
     tools:context=".AccueilActivity">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/androidbackground2"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="@android:dimen/app_icon_size"
+            app:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@android:dimen/notification_large_icon_height"
+            android:text="BIENVENUE"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#1d373e"
+            android:fontFamily="monospace"/>
+
+        <Button
+            android:id="@+id/actualiteButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Actualité" />
+
+        <Button
+            android:id="@+id/commerceButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Commerces" />
+
+        <Button
+            android:id="@+id/reseauButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Réseaux Sociaux" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@android:dimen/thumbnail_width"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/parametresButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Paramétres" />
+
+            <Button
+                android:id="@+id/configurationsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Configurations" />
+        </LinearLayout>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

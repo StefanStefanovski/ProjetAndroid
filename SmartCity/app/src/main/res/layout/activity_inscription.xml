@@ -21,7 +21,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Pseudo"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:layout_marginTop="@android:dimen/app_icon_size"/>
 
         <TextView
             android:id="@+id/Sexe"
@@ -85,6 +86,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Inscription"
-            android:layout_marginBottom="@android:dimen/thumbnail_width" />
+            android:layout_marginBottom="@android:dimen/thumbnail_width"
+            android:background="#56C8D6"
+            android:textStyle="bold"
+            android:layout_marginTop="@android:dimen/app_icon_size" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

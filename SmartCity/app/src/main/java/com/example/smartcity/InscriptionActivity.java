@@ -2,6 +2,7 @@ package com.example.smartcity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -40,6 +41,10 @@ public class InscriptionActivity extends AppCompatActivity {
                     Toast.makeText(InscriptionActivity.this, "Les mots de passe sont differentes",Toast.LENGTH_SHORT).show();
                 }else{
                     /*BDD a implementer*/
+
+
+                    Intent AccueilIntent = new Intent(InscriptionActivity.this,AccueilActivity.class);
+                    startActivity(AccueilIntent);
                 }
             }
         });
