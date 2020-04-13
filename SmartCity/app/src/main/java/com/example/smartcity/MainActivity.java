@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final EditText utilisateurEditText = (EditText)findViewById(R.id.pseudoEditText);
+        final EditText pseudoEditText = (EditText)findViewById(R.id.pseudoEditText);
         final EditText mdpEditText = (EditText)findViewById(R.id.motdepasseEditText);
         TextView inscription = (TextView)findViewById(R.id.inscriptionTextView);
         inscription.setText(Html.fromHtml("<p><u>" + inscription.getText() + "</u></p>"));
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         connexion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String utilisateur = utilisateurEditText.getText().toString();
+                String pseudo = pseudoEditText.getText().toString();
                 String mdp = mdpEditText.getText().toString();
                 /* database check user TO DO*/
 

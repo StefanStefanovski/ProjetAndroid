@@ -87,8 +87,6 @@
             android:layout_height="wrap_content"
             android:text="Inscription"
             android:layout_marginBottom="@android:dimen/thumbnail_width"
-            android:background="#56C8D6"
-            android:textStyle="bold"
-            android:layout_marginTop="@android:dimen/app_icon_size" />
+            android:textStyle="bold" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
