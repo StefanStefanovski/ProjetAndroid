@@ -22,9 +22,9 @@ public class AccueilActivity extends AppCompatActivity {
 
         activiteButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {/*
+            public void onClick(View v) {
                 Intent ActualiteIntent = new Intent(AccueilActivity.this,ActualiteActivity.class);
-                startActivity(ActualiteIntent);*/
+                startActivity(ActualiteIntent);
             }
         });
 
