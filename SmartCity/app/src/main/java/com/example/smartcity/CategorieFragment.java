@@ -28,6 +28,6 @@ public class CategorieFragment extends ListFragment {
     @Override
     public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
         DescriptionFragment txt = (DescriptionFragment)getFragmentManager().findFragmentById(R.id.fragment2);
-        txt.change("Cliqué: "+categories[position]);
+            txt.change("Cliqué: "+categories[position]);
     }
 }
