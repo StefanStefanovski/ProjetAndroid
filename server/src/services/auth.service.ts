@@ -19,7 +19,7 @@ export class AuthService {
   public async login(user: User): Promise<any | { status: number }> {
     return this.validate(user).then((userData) => {
 
-      if (!userData) {
+      if (!userData || user.password != userData.password) {
         return { status: 404 };
       }
 
