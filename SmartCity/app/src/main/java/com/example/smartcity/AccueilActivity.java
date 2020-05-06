@@ -49,10 +49,10 @@ public class AccueilActivity extends AppCompatActivity {
         parametresButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
+                
                 Intent ParametresIntent = new Intent(AccueilActivity.this,ParametresActivity.class);
                 startActivity(ParametresIntent);
-            */
+
             }
         });
 

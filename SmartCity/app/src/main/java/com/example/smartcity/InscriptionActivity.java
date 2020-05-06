@@ -2,9 +2,7 @@ package com.example.smartcity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -41,7 +39,7 @@ public class InscriptionActivity extends AppCompatActivity {
         final EditText cmdpEditText = (EditText)findViewById(R.id.confirmmdpEditText);
         final RadioGroup radioSexButton = (RadioGroup) findViewById(R.id.sexeRadioGroup);
 
-        Button inscription = (Button)findViewById(R.id.inscriptionBtn);
+        Button inscription = (Button)findViewById(R.id.ModifierBtn);
 
         inscription.setOnClickListener(new View.OnClickListener() {
             @Override
