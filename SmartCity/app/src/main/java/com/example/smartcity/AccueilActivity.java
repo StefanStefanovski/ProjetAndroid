@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class AccueilActivity extends AppCompatActivity {
 
@@ -19,6 +20,7 @@ public class AccueilActivity extends AppCompatActivity {
         Button reseauxButton = (Button)findViewById(R.id.reseauButton);
         Button parametresButton = (Button)findViewById(R.id.parametresButton);
         Button configurationButton = (Button)findViewById(R.id.configurationsButton);
+        Button deconnexionButton = (Button)findViewById(R.id.DeconexionBtn);
 
         activiteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,10 +61,25 @@ public class AccueilActivity extends AppCompatActivity {
         configurationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
+
                 Intent ConfigurationIntent = new Intent(AccueilActivity.this,ConfigurationActivity.class);
                 startActivity(ConfigurationIntent);
-            */
+
+            }
+        });
+
+        deconnexionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /* TO DO query serveur pour se deconecter */
+                boolean success = true;
+                if(success){
+                    Toast.makeText(AccueilActivity.this,"A bientôt",Toast.LENGTH_LONG).show();
+                    Intent DeconexionIntent = new Intent(AccueilActivity.this,MainActivity.class);
+                    startActivity(DeconexionIntent);
+                }else{
+                    Toast.makeText(AccueilActivity.this,"Echec",Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

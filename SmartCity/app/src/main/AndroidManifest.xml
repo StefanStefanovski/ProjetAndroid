@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ParametresActivity"></activity>
+        <activity android:name=".ConfigurationActivity"></activity>
+        <activity android:name=".ParametresActivity" />
         <activity android:name=".ActualiteActivity" />
         <activity android:name=".AccueilActivity" />
         <activity android:name=".InscriptionActivity" />

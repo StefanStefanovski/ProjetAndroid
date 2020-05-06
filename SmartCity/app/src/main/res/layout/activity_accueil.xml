@@ -53,6 +53,7 @@
             android:layout_height="wrap_content"
             android:text="Réseaux Sociaux" />
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -72,7 +73,15 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Configurations" />
+
         </LinearLayout>
 
+        <Button
+            android:id="@+id/DeconexionBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Deconnexion"
+            android:layout_marginTop="@android:dimen/app_icon_size"
+            android:background="#F4511E"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
