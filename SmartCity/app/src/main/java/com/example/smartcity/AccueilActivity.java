@@ -33,10 +33,10 @@ public class AccueilActivity extends AppCompatActivity {
         commerceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
+
                 Intent CommerceIntent = new Intent(AccueilActivity.this,CommerceActivity.class);
                 startActivity(CommerceIntent);
-            */}
+            }
         });
 
         reseauxButton.setOnClickListener(new View.OnClickListener() {

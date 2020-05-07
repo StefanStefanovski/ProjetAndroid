@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".CommerceActivity">
+
+    <fragment
+        android:layout_height="match_parent"
+        android:layout_width="350px"
+        class="com.example.smartcity.ListMenuCommerceFragment"
+        android:id="@+id/ListMenuCommerceFragment"
+        tools:layout="@layout/list_menu_commerce"/>
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/list_detail_commerce"
+        class="com.example.smartcity.ListDetailFragment"
+        android:id="@+id/ListDetailCommerceFragment"/>
+</LinearLayout>

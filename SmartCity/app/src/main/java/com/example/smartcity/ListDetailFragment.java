@@ -1,0 +1,50 @@
+package com.example.smartcity;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+
+import androidx.fragment.app.ListFragment;
+
+public class ListDetailFragment extends ListFragment {
+    /*
+     TextView name,location;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.details_info, container, false);
+        name = (TextView)view.findViewById(R.id.Name);
+        location = (TextView)view.findViewById(R.id.Location);
+        return view;
+    }
+    public void change(String uname, String ulocation){
+        name.setText(uname);
+        location.setText(ulocation);
+    }
+    */
+
+    //TO DO: apres creations de details pour chaque categorie supprimer les arrays de string
+    String[] Handball = new String[] { "Montpellier v Vardar","Veszprem v Kielce" };
+    String[] Football = new String[] {"PSG v Barcelona","Manchester United v Chelsea"};
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view =inflater.inflate(R.layout.list_detail_commerce, container, false);
+        return view;
+    }
+    public void changeCommerce(String uname){
+        //TO DO: recuperer les evennements de la bdd pour la categorie uname et remplir le listview avec ces données
+        //Exemples les evennements de handball
+
+        if(uname.equals("Handball")) {
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                    android.R.layout.simple_list_item_1, Handball);
+            setListAdapter(adapter);
+        }else{
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                    android.R.layout.simple_list_item_1, Football);
+            setListAdapter(adapter);
+        }
+    }
+}
