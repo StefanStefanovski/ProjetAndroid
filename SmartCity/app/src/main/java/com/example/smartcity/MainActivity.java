@@ -23,6 +23,7 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,6 +34,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView scad = (TextView)findViewById(R.id.textView2);
+        int unicode = 0x1F60A;
+        String emoji = getEmoji(unicode);
+
+        String output = "Stay connected \nand desinfected! \n             "+emoji;
+        scad.setText(output);
 
         final EditText pseudoEditText = (EditText) findViewById(R.id.pseudoEditText);
         final EditText mdpEditText = (EditText) findViewById(R.id.motdepasseEditText);
@@ -109,4 +117,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    public String getEmoji(int uni){
+        return new String(Character.toChars(uni));
+    }
+
 }
