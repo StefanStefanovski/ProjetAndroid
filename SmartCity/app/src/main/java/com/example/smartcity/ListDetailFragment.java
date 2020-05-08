@@ -1,28 +1,17 @@
 package com.example.smartcity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.ListFragment;
 
 public class ListDetailFragment extends ListFragment {
-    /*
-     TextView name,location;
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.details_info, container, false);
-        name = (TextView)view.findViewById(R.id.Name);
-        location = (TextView)view.findViewById(R.id.Location);
-        return view;
-    }
-    public void change(String uname, String ulocation){
-        name.setText(uname);
-        location.setText(ulocation);
-    }
-    */
 
     //TO DO: apres creations de details pour chaque categorie supprimer les arrays de string
     String[] Handball = new String[] { "Montpellier v Vardar","Veszprem v Kielce" };
@@ -46,5 +35,13 @@ public class ListDetailFragment extends ListFragment {
                     android.R.layout.simple_list_item_1, Football);
             setListAdapter(adapter);
         }
+    }
+
+    @Override
+    public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        Intent DetailCommerceIntent = new Intent(ListDetailFragment.this.getActivity(),DetailCommerceActivity.class);
+        //DetailCommerceIntent.putExtra("id",Football[position]);
+        startActivity(DetailCommerceIntent);
     }
 }
