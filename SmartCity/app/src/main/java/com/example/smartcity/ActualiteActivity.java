@@ -1,10 +1,11 @@
 package com.example.smartcity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
 
-public class ActualiteActivity extends AppCompatActivity {
+public class ActualiteActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

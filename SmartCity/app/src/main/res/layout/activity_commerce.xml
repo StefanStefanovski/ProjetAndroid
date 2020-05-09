@@ -3,19 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     tools:context=".CommerceActivity">
 
-    <fragment
-        android:layout_height="match_parent"
-        android:layout_width="350px"
-        class="com.example.smartcity.ListMenuCommerceFragment"
-        android:id="@+id/ListMenuCommerceFragment"
-        tools:layout="@layout/list_menu_commerce"/>
-    <fragment
+    <Button
+        android:id="@+id/ModeBtn"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout="@layout/list_detail_commerce"
-        class="com.example.smartcity.ListDetailFragment"
-        android:id="@+id/ListDetailCommerceFragment"/>
+        android:layout_height="wrap_content"
+        android:text="Mode"
+        android:onClick="showPopup"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <fragment
+            android:layout_height="match_parent"
+            android:layout_width="350px"
+            class="com.example.smartcity.ListMenuCommerceFragment"
+            android:id="@+id/ListMenuCommerceFragment"
+            tools:layout="@layout/list_menu_commerce"/>
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/list_detail_commerce"
+            class="com.example.smartcity.ListDetailFragment"
+            android:id="@+id/ListDetailCommerceFragment"/>
+    </LinearLayout>
 </LinearLayout>

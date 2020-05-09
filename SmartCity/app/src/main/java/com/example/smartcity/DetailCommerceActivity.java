@@ -1,44 +1,65 @@
 package com.example.smartcity;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.method.LinkMovementMethod;
+import android.util.AttributeSet;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
 import java.util.Random;
 
-public class DetailCommerceActivity extends AppCompatActivity {
-
+public class DetailCommerceActivity extends FragmentActivity  {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_commerce);
 
-        TextView titreTextView = (TextView)findViewById(R.id.TitreTextView);
-        TextView descriptionTextView = (TextView)findViewById(R.id.DescriptionTextView);
-        TextView infoTextView = (TextView)findViewById(R.id.InfoTextView);
+        TextView titreCommerceTextView = (TextView)findViewById(R.id.TitreTextView);
+        TextView infosTextView = (TextView)findViewById(R.id.infosTextView);
         ImageView imageView = (ImageView)findViewById(R.id.ImageCommerceView);
+        TextView descriptionTextView = (TextView)findViewById(R.id.descriptionCommerceTextView);
 
-        //TO DO:  recuperer tout les informations de la bdd pour le id
-        //et mettre la
-       // String titre = getIntent().getStringExtra("id");
-        //titreTextView.setText(titre);
+        String titre = getIntent().getStringExtra("id");
+        titreCommerceTextView.setText(titre);
 
-/*
         Random rnd = new Random();
         int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
         imageView.setBackgroundColor(color);
 
-        //la
+
         String lien = "https://www.viagogo.fr/Billets-de-sport/";
-        infoTextView.setText("Acheter des ticket: \n" + Html.fromHtml(lien));
+        infosTextView.setText("Acheter des ticket: \n" + Html.fromHtml(lien));
+        infosTextView.setMovementMethod(LinkMovementMethod.getInstance());
 
-        //et la
+        descriptionTextView.setText("Staduim: Old Trafford");
+    }
 
-        descriptionTextView.setText("Stadion: Old Trafford");
-    */}
+    /*@Nullable
+    @Override
+    public View onCreateView(@Nullable View parent, @NonNull String name, @NonNull Context context, @NonNull AttributeSet attrs) {
+
+        return super.onCreateView(parent, name, context, attrs);
+    }*/
+/*
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_detail_commerce);
+        //DetailCommerceFragment detailCommerceFragment = (DetailCommerceFragment)getSupportFragmentManager().findFragmentById(R.id.MainDetail);
+        //detailCommerceFragment.setArguments(getIntent().getExtras());
+
+    }*/
+
 }
