@@ -56,8 +56,6 @@ public class InscriptionActivity extends AppCompatActivity {
                 }else{
                     /*BDD a implementer*/
 
-
-
                     // Instantiate the RequestQueue.
                     RequestQueue queue = Volley.newRequestQueue(InscriptionActivity.this);
                     String url = "http://10.118.144.7:3000/auth/register";
