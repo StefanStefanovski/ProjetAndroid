@@ -10,8 +10,10 @@ import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,6 +34,7 @@ public class DetailCommerceActivity extends FragmentActivity  {
         TextView infosTextView = (TextView)findViewById(R.id.infosTextView);
         ImageView imageView = (ImageView)findViewById(R.id.ImageCommerceView);
         TextView descriptionTextView = (TextView)findViewById(R.id.descriptionCommerceTextView);
+        Button ajoutFavorisBtn = (Button)findViewById(R.id.AjoutFavorisBtn);
 
         String titre = getIntent().getStringExtra("id");
         titreCommerceTextView.setText(titre);
@@ -46,6 +49,14 @@ public class DetailCommerceActivity extends FragmentActivity  {
         infosTextView.setMovementMethod(LinkMovementMethod.getInstance());
 
         descriptionTextView.setText("Staduim: Old Trafford");
+
+        ajoutFavorisBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TO DO ajouter dans la bdd
+                Toast.makeText(DetailCommerceActivity.this, "Enregistré!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /*@Nullable
