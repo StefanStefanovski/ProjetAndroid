@@ -20,7 +20,7 @@
         <fragment
             android:layout_height="match_parent"
             android:layout_width="350px"
-            class="com.example.smartcity.ListMenuCommerceFragment"
+            class="com.example.smartcity.commerce.ListMenuCommerceFragment"
             android:id="@+id/ListMenuCommerceFragment"
             tools:layout="@layout/list_menu_commerce"/>
         <fragment

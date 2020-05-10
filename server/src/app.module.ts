@@ -8,6 +8,10 @@ import { jwtConstants } from './constant/auth';
 import { AuthController } from './controller/auth.controller';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
+import { Actuality } from './entities/actuality.entity';
+import { ActualityController } from './controller/actuality.controller';
+import { Category } from './entities/comerce.entity';
+import { CommerceController } from './controller/commerce.controller';
 
 @Module({
   imports: [
@@ -18,18 +22,18 @@ import { AuthService } from './services/auth.service';
       username: 'root',
       password: 'toor',
       database: 'mb',
-      entities: [User],
+      entities: [User, Actuality, Category],
       synchronize: true,
 
     }),
 
-    TypeOrmModule.forFeature([User]),
+    TypeOrmModule.forFeature([User, Actuality, Category]),
 
     JwtModule.register({
       secret: jwtConstants.secret,
     }),
   ],
-  controllers: [AppController, AuthController],
+  controllers: [AppController, AuthController, ActualityController, CommerceController],
   providers: [AppService, UserService, AuthService],
 })
 export class AppModule {}

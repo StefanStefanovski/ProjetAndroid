@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.smartcity.actualite.ActualiteActivity;
+
 public class AccueilActivity extends AppCompatActivity {
 
     @Override
@@ -25,7 +27,7 @@ public class AccueilActivity extends AppCompatActivity {
         activiteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ActualiteIntent = new Intent(AccueilActivity.this,ActualiteActivity.class);
+                Intent ActualiteIntent = new Intent(AccueilActivity.this, ActualiteActivity.class);
                 startActivity(ActualiteIntent);
             }
         });

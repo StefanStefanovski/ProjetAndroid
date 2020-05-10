@@ -10,7 +10,7 @@
             android:layout_height="match_parent"
             android:id="@+id/DetailCommerceFragment"
             tools:layout="@layout/detail_commerce"
-            class="com.example.smartcity.DetailCommerceFragment"
+            class="com.example.smartcity.commerce.DetailCommerceFragment"
             />-->
 
     <TextView

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActualiteActivity">
+    tools:context=".actualite.ActualiteActivity">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -15,7 +15,7 @@
         <fragment
             android:layout_width="350px"
             android:layout_height="match_parent"
-            class="com.example.smartcity.CategorieFragment"
+            class="com.example.smartcity.actualite.CategorieFragment"
             tools:layout="@layout/categorie"
             android:id="@+id/fragment"/>
         <fragment
