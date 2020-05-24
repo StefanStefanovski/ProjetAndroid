@@ -35,7 +35,7 @@ public class ConfigurationActivity extends AppCompatActivity {
 
                 Intent CreerReseauIntent = new Intent(ConfigurationActivity.this, CreerReseauActivity.class);
                 startActivity(CreerReseauIntent);
-            
+
             }
         });
 
