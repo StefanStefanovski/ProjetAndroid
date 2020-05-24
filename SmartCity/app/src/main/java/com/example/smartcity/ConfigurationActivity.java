@@ -32,10 +32,10 @@ public class ConfigurationActivity extends AppCompatActivity {
         creerReseauButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
+
                 Intent CreerReseauIntent = new Intent(ConfigurationActivity.this, CreerReseauActivity.class);
                 startActivity(CreerReseauIntent);
-            */
+            
             }
         });
 
