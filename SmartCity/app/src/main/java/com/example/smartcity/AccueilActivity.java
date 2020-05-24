@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.smartcity.actualite.ActualiteActivity;
+import com.example.smartcity.commerce.CommerceActivity;
 
 public class AccueilActivity extends AppCompatActivity {
 
@@ -36,7 +37,7 @@ public class AccueilActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent CommerceIntent = new Intent(AccueilActivity.this,CommerceActivity.class);
+                Intent CommerceIntent = new Intent(AccueilActivity.this, CommerceActivity.class);
                 startActivity(CommerceIntent);
             }
         });

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CommerceActivity">
+    tools:context=".commerce.CommerceActivity">
 
     <Button
         android:id="@+id/ModeBtn"
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout="@layout/list_detail_commerce"
-            class="com.example.smartcity.ListDetailFragment"
+            class="com.example.smartcity.commerce.ListDetailFragment"
             android:id="@+id/ListDetailCommerceFragment"/>
     </LinearLayout>
 </LinearLayout>

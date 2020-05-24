@@ -1,5 +1,6 @@
 
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { ChatRoom } from './chatroom';
 
 @Entity()
 export class User {
@@ -12,9 +13,15 @@ export class User {
   @Column()
   email: string;
 
+  @Column()
+  city: string;
+
   @Column({ default: true })
   isActive: boolean;
 
   @Column()
   password: string;
+
+  @OneToMany(type => ChatRoom, chatroom => chatroom.owner)
+  rooms: ChatRoom[];
 }

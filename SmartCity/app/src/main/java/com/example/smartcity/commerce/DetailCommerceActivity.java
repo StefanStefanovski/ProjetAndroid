@@ -22,6 +22,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.example.smartcity.R;
 
+import java.util.HashMap;
 import java.util.Random;
 
 public class DetailCommerceActivity extends FragmentActivity  {
@@ -36,8 +37,11 @@ public class DetailCommerceActivity extends FragmentActivity  {
         TextView descriptionTextView = (TextView)findViewById(R.id.descriptionCommerceTextView);
         Button ajoutFavorisBtn = (Button)findViewById(R.id.AjoutFavorisBtn);
 
-        String titre = getIntent().getStringExtra("id");
-        titreCommerceTextView.setText(titre);
+
+        HashMap<String, Object> commerce = (HashMap<String, Object>) getIntent().getExtras().getSerializable("id");
+
+        titreCommerceTextView.setText((String)commerce.get("title"));
+        descriptionTextView.setText((String) commerce.get("description"));
 
         Random rnd = new Random();
         int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
@@ -47,8 +51,6 @@ public class DetailCommerceActivity extends FragmentActivity  {
         String lien = "https://www.viagogo.fr/Billets-de-sport/";
         infosTextView.setText("Acheter des ticket: \n" + Html.fromHtml(lien));
         infosTextView.setMovementMethod(LinkMovementMethod.getInstance());
-
-        descriptionTextView.setText("Staduim: Old Trafford");
 
         ajoutFavorisBtn.setOnClickListener(new View.OnClickListener() {
             @Override

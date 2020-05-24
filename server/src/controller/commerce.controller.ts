@@ -9,16 +9,32 @@ import { Category } from '../entities/comerce.entity';
 
 @Controller('commerce')
 export  class  CommerceController {
-  constructor(@InjectRepository(Category)
-              private actualityRepository: Repository<Category>,) {}
+      constructor(@InjectRepository(Category)
+                  private actualityRepository: Repository<Category>,) {}
 
-  @Get('')
-  async getCommerce(@Query() query): Promise<any> {
-    return this.actualityRepository.find({
-      where: {
-        category: query.type.toLowerCase(),
-      }
-    })
+      @Get('')
+      async getCommerce(@Query() query): Promise<any> {
+
+        if(query.type == "1") {
+          return   this.actualityRepository.find({
+            where: {
+              category: query.category.toLowerCase(),
+            }
+          });
+        } else {
+          return this.actualityRepository.find({
+            where: {
+              category: query.category.toLowerCase(),
+              city: "Montpellier"
+            }
+          })
+        }
+
+  }
+
+  @Get('/id/:id')
+  async getCommerceById(@Query() query): Promise<any> {
+    return this.actualityRepository.findOne(query.id);
   }
 
   @Get('categories')

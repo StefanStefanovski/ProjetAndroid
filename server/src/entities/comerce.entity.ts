@@ -14,4 +14,9 @@ export class Category {
 
   @Column()
   category: string;
+
+
+  @Column()
+  city: string;
+
 }

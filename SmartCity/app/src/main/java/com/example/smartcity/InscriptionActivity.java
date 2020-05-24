@@ -47,6 +47,7 @@ public class InscriptionActivity extends AppCompatActivity {
                 String pseudo = pseudoEditText.getText().toString();
                 final String email = emailEditText.getText().toString();
                 final String mdp = mdpEditText.getText().toString();
+                final String city = villeEditText.getText().toString();
                 String cmdp = cmdpEditText.getText().toString();
                 final int selectedSexe = radioSexButton.getCheckedRadioButtonId();
                 RadioButton radioButtonSexe = (RadioButton)findViewById(selectedSexe);
@@ -91,7 +92,7 @@ public class InscriptionActivity extends AppCompatActivity {
                             Map<String, String> params = new HashMap<>();
                             params.put("email", email);
                             params.put("password", mdp);
-                            params.put("sexe", selectedSexe + "");
+                            params.put("city", city);
 
                             return params;
                         }

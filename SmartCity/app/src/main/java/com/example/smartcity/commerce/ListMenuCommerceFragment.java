@@ -15,20 +15,19 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.smartcity.ListDetailFragment;
 import com.example.smartcity.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class ListMenuCommerceFragment extends ListFragment {
     // TO DO: extrait les données et remplaces par la liste de categorie
-    List<String> categories = new LinkedList<>();
+    List<String> categories;
+    private int type = 1;
     private Request<String> add;
 
     //String[] location = new String[]{"Hyderabad","Guntur","Hyderabad","Bangalore","Vizag","Nagpur"};
@@ -36,7 +35,13 @@ public class ListMenuCommerceFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view =inflater.inflate(R.layout.list_menu_commerce, container, false);
+        fetchData();
+        return view;
 
+
+    }
+
+    public void fetchData() {
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
         String url = "http://10.118.144.7:3000/commerce/categories";
 
@@ -47,6 +52,7 @@ public class ListMenuCommerceFragment extends ListFragment {
                     public void onResponse(String response) {
                         try{
                             JSONArray arr = new JSONArray(response);
+                            categories = new ArrayList<>();
 
                             for(int i = 0; i < arr.length(); ++i) {
                                 categories.add(arr.getString(i));
@@ -71,15 +77,19 @@ public class ListMenuCommerceFragment extends ListFragment {
 
 
 
-        return view;
     }
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         ListDetailFragment txt = (ListDetailFragment) getFragmentManager().findFragmentById(R.id.ListDetailCommerceFragment);
 
-        txt.changeCommerce(categories.get(position));
+        txt.changeCommerce(categories.get(position), String.valueOf(this.type));
         getListView().setSelector(android.R.color.holo_blue_dark);
 
+    }
+
+    public void onChangeProximity(int type) {
+        this.type = type;
+        this.onListItemClick(null, null, 0, 0);
     }
 }
