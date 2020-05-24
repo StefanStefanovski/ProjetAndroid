@@ -35,8 +35,15 @@ public class ReseauActivity extends AppCompatActivity {
         ReseauListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                Intent ChatIntent = new Intent(ReseauActivity.this, ChatActivity.class);
-                startActivity(ChatIntent);
+                //TO DO recuperer l'acces du serveur
+                boolean acces = true;
+                if(false){
+                    Intent ChatIntent = new Intent(ReseauActivity.this, ChatActivity.class);
+                    startActivity(ChatIntent);
+                }else {
+                    DemanderAccesDialog demanderAccesDialog = new DemanderAccesDialog();
+                    demanderAccesDialog.show(getSupportFragmentManager(), "Dmander accès!");
+                }
             }
         });
     }
