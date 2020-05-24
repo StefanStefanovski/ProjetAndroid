@@ -44,10 +44,10 @@ public class AccueilActivity extends AppCompatActivity {
         reseauxButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
+
                 Intent ReseauIntent = new Intent(AccueilActivity.this,ReseauActivity.class);
                 startActivity(ReseauIntent);
-            */
+
             }
         });
         parametresButton.setOnClickListener(new View.OnClickListener() {
