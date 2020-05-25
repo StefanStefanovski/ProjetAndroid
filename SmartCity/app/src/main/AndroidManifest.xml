@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CreerReseauActivity"></activity>
+        <activity android:name=".DemandesActivity"></activity>
+        <activity android:name=".CreerReseauActivity" />
         <activity android:name=".ChatActivity" />
         <activity android:name=".ReseauActivity" />
         <activity android:name=".commerce.DetailCommerceActivity" />

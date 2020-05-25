@@ -22,10 +22,10 @@ public class ConfigurationActivity extends AppCompatActivity {
         demandesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
+
                 Intent DemandesIntent = new Intent(ConfigurationActivity.this, DemandesActivity.class);
                 startActivity(DemandesIntent);
-                */
+
             }
         });
 
@@ -42,10 +42,10 @@ public class ConfigurationActivity extends AppCompatActivity {
         creerEvennementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
+
                 Intent CreerEvennementIntent = new Intent(ConfigurationActivity.this, CreerEvennementActivity.class);
                 startActivity(CreerEvennementIntent);
-                 */
+
             }
         });
 
