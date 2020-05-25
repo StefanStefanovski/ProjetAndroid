@@ -15,6 +15,8 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".reseaux.ChatActivity"></activity>
         <activity android:name=".reseaux.ReseauActivity" />
+        <activity android:name=".DemandesActivity"></activity>
+        <activity android:name=".CreerReseauActivity" />
         <activity android:name=".commerce.DetailCommerceActivity" />
         <activity android:name=".commerce.CommerceActivity" />
         <activity android:name=".CreerEvennementActivity" />

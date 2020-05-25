@@ -1,12 +1,12 @@
 package com.example.smartcity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.smartcity.actualite.ActualiteActivity;
 import com.example.smartcity.commerce.CommerceActivity;
@@ -78,11 +78,11 @@ public class AccueilActivity extends AppCompatActivity {
                 /* TO DO query serveur pour se deconecter */
                 boolean success = true;
                 if(success){
-                    Toast.makeText(AccueilActivity.this,"A bientôt",Toast.LENGTH_LONG).show();
+                    Toast.makeText(AccueilActivity.this,"A bientôt",Toast.LENGTH_SHORT).show();
                     Intent DeconexionIntent = new Intent(AccueilActivity.this,MainActivity.class);
                     startActivity(DeconexionIntent);
                 }else{
-                    Toast.makeText(AccueilActivity.this,"Echec",Toast.LENGTH_LONG).show();
+                    Toast.makeText(AccueilActivity.this,"Echec",Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -22,30 +22,30 @@ public class ConfigurationActivity extends AppCompatActivity {
         demandesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
+
                 Intent DemandesIntent = new Intent(ConfigurationActivity.this, DemandesActivity.class);
                 startActivity(DemandesIntent);
-                */
+
             }
         });
 
         creerReseauButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
+
                 Intent CreerReseauIntent = new Intent(ConfigurationActivity.this, CreerReseauActivity.class);
                 startActivity(CreerReseauIntent);
-            */
+
             }
         });
 
         creerEvennementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
+
                 Intent CreerEvennementIntent = new Intent(ConfigurationActivity.this, CreerEvennementActivity.class);
                 startActivity(CreerEvennementIntent);
-                 */
+
             }
         });
 
