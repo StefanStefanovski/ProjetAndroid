@@ -8,6 +8,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.smartcity.reseaux.CreerReseauActivity;
+
 public class ConfigurationActivity extends AppCompatActivity {
 
     @Override

@@ -14,6 +14,10 @@ export class ChatRoom {
   @Column()
   name: string;
 
+  @Column({default: true,})
+  public: boolean;
+
+
   @OneToMany(type => ChatMessage, message => message.room)
   messages: ChatMessage[];
 

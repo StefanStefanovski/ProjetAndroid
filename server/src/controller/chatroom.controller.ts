@@ -22,6 +22,15 @@ export class ChatRoomController {
     return this.chatroomRepo.find();
   }
 
+  @Post('')
+  async createRoom(@Body() params): Promise<any> {
+    return this.chatroomRepo.insert({
+      name: params.name,
+      owner: params.owner,
+      public: params.public == 'true',
+    });
+  }
+
   @Get('messages')
   async getRoomMessage(@Query() query): Promise<any> {
     return this.chatMessageRepo.find({

@@ -18,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.smartcity.DemanderAccesDialog;
 import com.example.smartcity.R;
 
 import org.json.JSONArray;
@@ -81,13 +82,12 @@ public class ReseauActivity extends AppCompatActivity {
                                 HashMap<String, Object> hash = new HashMap<>();
                                 hash.put("id", arr.getJSONObject(i).getInt("id"));
                                 hash.put("name", arr.getJSONObject(i).getString("name"));
+                                hash.put("public", arr.getJSONObject(i).getBoolean("public"));
 
                                 data.add(hash);
 
                                 Reseaux.add(hash.get("name").toString());
                             }
-
-
 
 
                             arrayAdapter = new ArrayAdapter(self, android.R.layout.simple_list_item_1, Reseaux);
@@ -96,9 +96,22 @@ public class ReseauActivity extends AppCompatActivity {
                             ReseauListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                                    Intent ChatIntent = new Intent(ReseauActivity.this, ChatActivity.class);
-                                    ChatIntent.putExtra("id", data.get(position).get("id").toString());
-                                    startActivity(ChatIntent);
+
+                                    //TO DO recuperer l'acces du serveur
+                                    boolean acces = (Boolean) data.get(position).get("public");
+                                    if(acces){
+
+                                        Intent ChatIntent = new Intent(ReseauActivity.this, ChatActivity.class);
+                                        ChatIntent.putExtra("id", data.get(position).get("id").toString());
+                                        startActivity(ChatIntent);
+
+
+                                    }else {
+                                        DemanderAccesDialog demanderAccesDialog = new DemanderAccesDialog();
+                                        demanderAccesDialog.show(getSupportFragmentManager(), "Demander accès!");
+                                    }
+
+
                                 }
                             });
 
