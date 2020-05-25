@@ -8,6 +8,15 @@
     tools:context=".CreerReseauActivity"
     android:background="@drawable/androidbackground2">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/logo"
+        android:layout_marginTop="@android:dimen/app_icon_size"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@android:dimen/app_icon_size"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,6 +87,21 @@
             android:layout_weight="1"
             android:text=""
             />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="@android:dimen/app_icon_size">
+
+        <Button
+            android:id="@+id/CreerReseauButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Créer" />
     </LinearLayout>
 
 

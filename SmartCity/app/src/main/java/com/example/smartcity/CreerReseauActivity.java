@@ -1,6 +1,8 @@
 package com.example.smartcity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
@@ -28,6 +30,14 @@ public class CreerReseauActivity extends AppCompatActivity {
                 }else{
                     Toast.makeText(CreerReseauActivity.this,"Publique selectioné", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        Button CreerReseauButton = (Button)findViewById(R.id.CreerReseauButton);
+        CreerReseauButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(CreerReseauActivity.this, "Reseau crée!", Toast.LENGTH_SHORT).show();
             }
         });
     }
