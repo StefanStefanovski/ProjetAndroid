@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.smartcity.actualite.ActualiteActivity;
 import com.example.smartcity.commerce.CommerceActivity;
+import com.example.smartcity.reseaux.ReseauActivity;
 
 public class AccueilActivity extends AppCompatActivity {
 
@@ -46,7 +47,7 @@ public class AccueilActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent ReseauIntent = new Intent(AccueilActivity.this,ReseauActivity.class);
+                Intent ReseauIntent = new Intent(AccueilActivity.this, ReseauActivity.class);
                 startActivity(ReseauIntent);
 
             }

@@ -30,6 +30,7 @@ export class AuthService {
         expires_in: 3600,
         access_token: accessToken,
         user_id: payload,
+        name: userData.name,
         status: 200,
       };
 

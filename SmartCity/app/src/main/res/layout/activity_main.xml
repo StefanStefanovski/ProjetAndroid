@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Pseudo"
+            android:hint="E-mail"
             android:inputType="textPersonName" />
         <EditText
             android:id="@+id/motdepasseEditText"

@@ -13,8 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ChatActivity"></activity>
-        <activity android:name=".ReseauActivity" />
+        <activity android:name=".reseaux.ChatActivity"></activity>
+        <activity android:name=".reseaux.ReseauActivity" />
         <activity android:name=".commerce.DetailCommerceActivity" />
         <activity android:name=".commerce.CommerceActivity" />
         <activity android:name=".CreerEvennementActivity" />

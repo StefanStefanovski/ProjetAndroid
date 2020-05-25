@@ -18,6 +18,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -76,13 +77,18 @@ public class MainActivity extends AppCompatActivity {
                             public void onResponse(String response) {
                                 try{
                                     JSONObject jsonObject = new JSONObject(response);
-                                    String token = jsonObject.getString("access_token");
 
                                     Context context = MainActivity.this;
                                     SharedPreferences sharedPref = context.getSharedPreferences(
                                             "token", Context.MODE_PRIVATE);
 
-                                    sharedPref.edit().putString("token", token);
+
+                                    SharedPreferences.Editor editor = sharedPref.edit();
+                                    editor.putString("id", jsonObject.getString("user_id"));
+                                    editor.putString("token", jsonObject.getString("access_token"));
+                                    editor.putString("name", jsonObject.getString("name"));
+                                    editor.commit();
+
 
                                     Intent AcceuilIntent = new Intent(MainActivity.this,AccueilActivity.class);
                                     startActivity(AcceuilIntent);

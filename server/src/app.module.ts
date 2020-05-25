@@ -12,6 +12,9 @@ import { Actuality } from './entities/actuality.entity';
 import { ActualityController } from './controller/actuality.controller';
 import { Category } from './entities/comerce.entity';
 import { CommerceController } from './controller/commerce.controller';
+import { ChatRoom } from './entities/chatroom';
+import { ChatMessage } from './entities/chatmessage';
+import { ChatRoomController } from './controller/chatroom.controller';
 
 @Module({
   imports: [
@@ -22,18 +25,17 @@ import { CommerceController } from './controller/commerce.controller';
       username: 'root',
       password: 'toor',
       database: 'mb',
-      entities: [User, Actuality, Category],
+      entities: [User, Actuality, Category, ChatRoom, ChatMessage],
       synchronize: true,
-
     }),
 
-    TypeOrmModule.forFeature([User, Actuality, Category]),
+    TypeOrmModule.forFeature([User, Actuality, Category, ChatRoom, ChatMessage]),
 
     JwtModule.register({
       secret: jwtConstants.secret,
     }),
   ],
-  controllers: [AppController, AuthController, ActualityController, CommerceController],
+  controllers: [AppController, AuthController, ActualityController, CommerceController, ChatRoomController],
   providers: [AppService, UserService, AuthService],
 })
 export class AppModule {}
