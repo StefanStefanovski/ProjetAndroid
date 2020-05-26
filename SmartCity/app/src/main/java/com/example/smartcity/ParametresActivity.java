@@ -1,7 +1,6 @@
 package com.example.smartcity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -21,9 +20,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,7 +28,7 @@ public class ParametresActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inscription);
+        setContentView(R.layout.activity_parametres);
 
         final EditText pseudoEditText = (EditText)findViewById(R.id.pseudoEditText);
         final EditText villeEditText = (EditText)findViewById(R.id.villeEditText);
