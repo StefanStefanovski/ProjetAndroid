@@ -43,5 +43,10 @@ export  class  CommerceController {
     });
   }
 
+  @Post('add')
+  async addCommerce(@Body() body) {
+    return (await this.actualityRepository.insert(body));
+  }
+
 
 }

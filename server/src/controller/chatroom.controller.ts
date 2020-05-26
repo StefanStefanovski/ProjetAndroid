@@ -75,9 +75,33 @@ export class ChatRoomController {
     return this.chatroomRepo.save(room);
   }
 
+  @Get('requests')
+  async requests(@Body() query): Promise<any> {
+    let room = await this.chatroomRepo.findOne({
+      where: {
+        id: query.room_id,
+      },
+
+      relations: ["requestedjoin"]
+    });
+
+    return room.requestedjoin;
+  }
+
+
   @Post('messages')
   async addMessage(@Body() params): Promise<any> {
     return this.chatMessageRepo.insert(params);
+  }
+
+  @Post('accept-request')
+  async acceptRequest(@Body() params): Promise<any> {
+    let chatRoom = await this.chatroomRepo.findOne(params.id);
+
+    chatRoom.joinedChatRoom = chatRoom.requestedjoin;
+    chatRoom.joinedChatRoom = []
+
+    this.chatroomRepo.save(chatRoom);
   }
 
 }
