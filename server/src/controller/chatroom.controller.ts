@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { Category } from '../entities/comerce.entity';
 import { ChatRoom } from '../entities/chatroom';
 import { ChatMessage } from '../entities/chatmessage';
+import { User } from '../entities/user.entity';
 
 
 @Controller('chatroom')
@@ -12,7 +13,10 @@ export class ChatRoomController {
               private chatroomRepo: Repository<ChatRoom>,
 
               @InjectRepository(ChatMessage)
-              private chatMessageRepo: Repository<ChatMessage>
+              private chatMessageRepo: Repository<ChatMessage>,
+
+              @InjectRepository(User)
+              private userRepo: Repository<User>
   ) {
   }
 
@@ -38,6 +42,35 @@ export class ChatRoomController {
         room: query.id,
       }
     })
+  }
+
+
+  @Get('hasaccess')
+  async hasAccess(@Query() query): Promise<any> {
+    let user = await this.userRepo.findOne({
+      where: {
+        id: query.user_id,
+      },
+      relations: ['requestedjoinChatRoom']
+    });
+
+    return user.requestedjoinChatRoom;
+  }
+
+  @Post('request')
+  async requestAccess(@Body() query): Promise<any> {
+    let room = await this.chatroomRepo.findOne({
+      where: {
+        id: query.room_id,
+      },
+
+      relations: ["requestedjoin"]
+    });
+    let user = await this.userRepo.findOne(query.user_id);
+
+    room.requestedjoin.push(user);
+
+    return this.chatroomRepo.save(room);
   }
 
   @Post('messages')

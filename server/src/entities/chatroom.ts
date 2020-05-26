@@ -21,11 +21,13 @@ export class ChatRoom {
   @OneToMany(type => ChatMessage, message => message.room)
   messages: ChatMessage[];
 
-  @ManyToMany(type => User)
+  @ManyToMany(type => User, {
+    cascade: true,
+  })
   @JoinTable()
   requestedjoin: User[];
 
   @ManyToMany(type => User)
   @JoinTable()
-  joined: User[];
+  joinedChatRoom: User[];
 }

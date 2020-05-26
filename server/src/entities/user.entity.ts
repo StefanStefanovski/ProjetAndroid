@@ -1,5 +1,5 @@
 
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToMany, JoinTable } from 'typeorm';
 import { ChatRoom } from './chatroom';
 
 @Entity()
@@ -21,6 +21,13 @@ export class User {
 
   @Column()
   password: string;
+
+
+  @ManyToMany(type => ChatRoom, inverse => inverse.requestedjoin)
+  requestedjoinChatRoom: ChatRoom[];
+
+  @ManyToMany(type => ChatRoom, inverse => inverse.joinedChatRoom)
+  joinedChatRoom: ChatRoom[];
 
   @OneToMany(type => ChatRoom, chatroom => chatroom.owner)
   rooms: ChatRoom[];

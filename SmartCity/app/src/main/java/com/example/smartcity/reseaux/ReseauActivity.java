@@ -1,6 +1,8 @@
 package com.example.smartcity.reseaux;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,6 +55,13 @@ public class ReseauActivity extends AppCompatActivity {
 
         final AppCompatActivity self = this;
 
+
+        Context context = self;
+        SharedPreferences sharedPref = context.getSharedPreferences(
+                "token", Context.MODE_PRIVATE);
+
+        final String user_id = sharedPref.getString("id", "");
+
         RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());
         String url = String.format("http://10.118.144.7:3000/chatroom"); ;
 
@@ -63,12 +72,8 @@ public class ReseauActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try{
 
-
-
                             List<JSONObject> objects = new ArrayList<>();
                             List<String> items = new ArrayList<>();
-
-
 
                             ReseauListView.setAdapter(null);
 
@@ -83,6 +88,7 @@ public class ReseauActivity extends AppCompatActivity {
                                 hash.put("id", arr.getJSONObject(i).getInt("id"));
                                 hash.put("name", arr.getJSONObject(i).getString("name"));
                                 hash.put("public", arr.getJSONObject(i).getBoolean("public"));
+                                hash.put("owner", arr.getJSONObject(i).getBoolean("owner"));
 
                                 data.add(hash);
 
@@ -95,22 +101,71 @@ public class ReseauActivity extends AppCompatActivity {
 
                             ReseauListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
                                 @Override
-                                public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-
-                                    //TO DO recuperer l'acces du serveur
-                                    boolean acces = (Boolean) data.get(position).get("public");
-                                    if(acces){
-
-                                        Intent ChatIntent = new Intent(ReseauActivity.this, ChatActivity.class);
-                                        ChatIntent.putExtra("id", data.get(position).get("id").toString());
-                                        startActivity(ChatIntent);
+                                public void onItemClick(AdapterView<?> parent, View view, final int position, long id){
 
 
-                                    }else {
-                                        DemanderAccesDialog demanderAccesDialog = new DemanderAccesDialog();
-                                        demanderAccesDialog.show(getSupportFragmentManager(), "Demander accès!");
-                                    }
 
+                                    RequestQueue queue = Volley.newRequestQueue(self.getApplicationContext());
+                                    String url = String.format("http://10.118.144.7:3000/chatroom/hasaccess"); ;
+
+                                    // Request a string response from the provided URL.
+                                    StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                                            new Response.Listener<String>() {
+                                                @Override
+                                                public void onResponse(String response) {
+                                                    try{
+
+                                                        List<JSONObject> objects = new ArrayList<>();
+                                                        List<String> items = new ArrayList<>();
+
+                                                        ReseauListView.setAdapter(null);
+
+                                                        JSONArray arr = new JSONArray(response);
+
+                                                        if(arr.length() <= 0)
+                                                            return;
+                                                        data = new ArrayList<>();
+
+                                                        for(int i = 0; i < arr.length(); ++i) {
+                                                            HashMap<String, Object> hash = new HashMap<>();
+                                                            hash.put("id", arr.getJSONObject(i).getInt("id"));
+                                                            hash.put("name", arr.getJSONObject(i).getString("name"));
+                                                            hash.put("public", arr.getJSONObject(i).getBoolean("public"));
+                                                            hash.put("owner", arr.getJSONObject(i).getBoolean("owner"));
+
+                                                            data.add(hash);
+                                                        }
+
+
+                                                        HashMap<String, Object>room = data.get(position);;
+                                                        boolean acces = (Boolean) room.get("public");
+                                                        String owner = (String) room.get("owner");
+
+                                                        if(acces || owner == user_id){
+
+                                                            Intent ChatIntent = new Intent(ReseauActivity.this, ChatActivity.class);
+                                                            ChatIntent.putExtra("id", data.get(position).get("id").toString());
+                                                            startActivity(ChatIntent);
+
+
+                                                        }else {
+                                                            DemanderAccesDialog demanderAccesDialog = new DemanderAccesDialog();
+                                                            demanderAccesDialog.setRoomid(data.get(position).get("id").toString());
+                                                            demanderAccesDialog.setUserid(user_id);
+                                                            demanderAccesDialog.show(getSupportFragmentManager(), "Demander accès!");
+                                                        }
+
+                                                    }catch (JSONException e) {
+                                                        e.printStackTrace();
+                                                    }
+
+                                                }
+                                            },
+                                            new Response.ErrorListener() {
+                                                @Override
+                                                public void onErrorResponse(VolleyError error) {
+                                                }
+                                            });
 
                                 }
                             });
@@ -130,6 +185,11 @@ public class ReseauActivity extends AppCompatActivity {
 
         queue.add(stringRequest);
     }
+
+
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
