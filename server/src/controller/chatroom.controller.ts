@@ -23,7 +23,9 @@ export class ChatRoomController {
 
   @Get('')
   async getRooms(): Promise<any> {
-    return this.chatroomRepo.find();
+    return this.chatroomRepo.find({
+      relations: ['owner']
+    });
   }
 
   @Post('')

@@ -88,10 +88,9 @@ public class ReseauActivity extends AppCompatActivity {
                                 hash.put("id", arr.getJSONObject(i).getInt("id"));
                                 hash.put("name", arr.getJSONObject(i).getString("name"));
                                 hash.put("public", arr.getJSONObject(i).getBoolean("public"));
-                                hash.put("owner", arr.getJSONObject(i).getBoolean("owner"));
+                                hash.put("owner", arr.getJSONObject(i).getJSONObject("owner").getInt("id"));
 
                                 data.add(hash);
-
                                 Reseaux.add(hash.get("name").toString());
                             }
 
@@ -115,26 +114,6 @@ public class ReseauActivity extends AppCompatActivity {
                                                 public void onResponse(String response) {
                                                     try{
 
-                                                        List<JSONObject> objects = new ArrayList<>();
-                                                        List<String> items = new ArrayList<>();
-
-                                                        ReseauListView.setAdapter(null);
-
-                                                        JSONArray arr = new JSONArray(response);
-
-                                                        if(arr.length() <= 0)
-                                                            return;
-                                                        data = new ArrayList<>();
-
-                                                        for(int i = 0; i < arr.length(); ++i) {
-                                                            HashMap<String, Object> hash = new HashMap<>();
-                                                            hash.put("id", arr.getJSONObject(i).getInt("id"));
-                                                            hash.put("name", arr.getJSONObject(i).getString("name"));
-                                                            hash.put("public", arr.getJSONObject(i).getBoolean("public"));
-                                                            hash.put("owner", arr.getJSONObject(i).getBoolean("owner"));
-
-                                                            data.add(hash);
-                                                        }
 
 
                                                         HashMap<String, Object>room = data.get(position);;
@@ -154,6 +133,8 @@ public class ReseauActivity extends AppCompatActivity {
                                                             demanderAccesDialog.setUserid(user_id);
                                                             demanderAccesDialog.show(getSupportFragmentManager(), "Demander accès!");
                                                         }
+
+                                                        throw new JSONException("tata");
 
                                                     }catch (JSONException e) {
                                                         e.printStackTrace();

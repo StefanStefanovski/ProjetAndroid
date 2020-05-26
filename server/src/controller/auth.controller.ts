@@ -17,4 +17,9 @@ export  class  AuthController {
     return this.authService.register(user);
   }
 
+  @Post('update')
+  async update(@Body() user: User): Promise<any> {
+    return this.authService.register(user);
+  }
+
 }

@@ -40,5 +40,9 @@ export class AuthService {
   public async register(user: User): Promise<any> {
     return this.userService.create(user);
   }
+
+  public async update(user: User): Promise<any> {
+    return this.userService.update(user);
+  }
 }
 

@@ -29,7 +29,6 @@ export  class  CommerceController {
             }
           })
         }
-
   }
 
   @Get('/id/:id')
